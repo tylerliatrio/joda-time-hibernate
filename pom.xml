@@ -415,20 +415,14 @@
 
   <!-- ==================================================================== -->
   <distributionManagement>
-    <repository>
-      <id>sonatype-joda-staging</id>
-      <name>Sonatype OSS staging repository</name>
-      <url>http://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-      <layout>default</layout>
-    </repository>
     <snapshotRepository>
-      <uniqueVersion>false</uniqueVersion>
-      <id>sonatype-joda-snapshot</id>
-      <name>Sonatype OSS snapshot repository</name>
-      <url>http://oss.sonatype.org/content/repositories/joda-snapshots</url>
-      <layout>default</layout>
+      <id>snapshots</id>
+      <url>http://127.0.0.1:8081/nexus/content/repositories/snapshots</url>
     </snapshotRepository>
-    <downloadUrl>http://oss.sonatype.org/content/repositories/joda-releases</downloadUrl>
+    <repository>
+      <id>deployment</id>
+      <url>http://127.0.0.1:8081/repository/internal/</url>
+    </repository>
   </distributionManagement>
 
   <!-- ==================================================================== -->
