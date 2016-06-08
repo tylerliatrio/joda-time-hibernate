@@ -81,22 +81,7 @@
     </resources>
     <!-- define build -->
     <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <configuration>
-          <archive>
-            <manifestFile>src/conf/MANIFEST.MF</manifestFile>
-            <manifest>
-              <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-              <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-            </manifest>
-            <manifestEntries>
-              <Implementation-Build>$\{buildNumber}</Implementation-Build>
-            </manifestEntries>
-          </archive>
-        </configuration>
-      </plugin>
+
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>buildnumber-maven-plugin</artifactId>
@@ -110,10 +95,28 @@
           </execution>
         </executions>
         <configuration>
-          <doCheck>true</doCheck>
+          <doCheck>false</doCheck>
           <doUpdate>true</doUpdate>
         </configuration>
       </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifestFile>src/conf/MANIFEST.MF</manifestFile>
+            <manifest>
+              <!--<addDefaultImplementationEntries>true</addDefaultImplementationEntries>-->
+              <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+            </manifest>
+            <manifestEntries>
+              <Implementation-Build>${buildNumber}</Implementation-Build>
+            </manifestEntries>
+          </archive>
+        </configuration>
+      </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
