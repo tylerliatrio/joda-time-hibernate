@@ -89,8 +89,10 @@
             <manifestFile>src/conf/MANIFEST.MF</manifestFile>
             <manifest>
               <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-              <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
             </manifest>
+            <manifestEntries>
+              <Implementation-Build>$\{buildNumber}</Implementation-Build>
+            </manifestEntries>
           </archive>
         </configuration>
       </plugin>
